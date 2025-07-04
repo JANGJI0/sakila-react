@@ -55,7 +55,7 @@ export default function Customer() {
         {pageNumbers.map((num) => (
           <button
             key={num}
-            className={`px-3 py-1 rounded ${num === pageNumber ? 'bg-pink-500 text-white' : 'bg-gray-200 hover:bg-gray-300'}`}
+            className={`px-3 py-1 rounded ${num === pageNumber ? 'bg-purple-500 text-white' : 'bg-gray-200 hover:bg-gray-300'}`}
             onClick={() => setPageNumber(num)}
           >
             {num}

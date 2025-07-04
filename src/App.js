@@ -1,4 +1,4 @@
-import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
+import {BrowserRouter, Routes, Route, NavLink} from 'react-router-dom'
 import Home from './component/Home';
 import Country from './component/Country';
 import City from './component/City';
@@ -13,6 +13,10 @@ import CityOne from './component/CityOne';
 import AddressOne from './component/AddressOne';
 import CustomerOne from './component/CustomerOne';
 import AddCustomer from './component/AddCustomer';
+import EditCountry from './component/EditCountry';
+import EditCity from './component/EditCity';
+import EditAddress from './component/EditAddress';
+import EditCustomer from './component/EditCustomer';
 export default function App() {
   return (
     <BrowserRouter>
@@ -28,35 +32,110 @@ export default function App() {
         </div>
 
         {/* 메뉴 */}
-        <ul className="flex justify-center space-x-6 mb-8 text-lg font-semibold">
-          <li><Link to="/" className="hover:text-pink-500 transition">Home</Link></li>
-          <li><Link to="/Country" className="hover:text-pink-500 transition">Country</Link></li>
-          <li><Link to="/City" className="hover:text-pink-500 transition">City</Link></li>
-          <li><Link to="/Address" className="hover:text-pink-500 transition">Address</Link></li>
-          <li><Link to="/Customer" className="hover:text-pink-500 transition">Customer</Link></li>
-          <li><Link to="/Store" className="hover:text-pink-500 transition">Store</Link></li>
-        </ul>
+<ul className="flex justify-center space-x-6 mb-8 text-lg font-semibold">
+  <li>
+    <NavLink
+      to="/"
+      className={({ isActive }) =>
+        isActive 
+          ? "text-pink-500 font-bold transition"
+          : "hover:text-pink-500 transition"
+      }
+    >
+      Home
+    </NavLink>
+  </li>
+  <li>
+    <NavLink
+      to="/Country"
+      className={({ isActive }) =>
+        isActive 
+          ? "text-pink-500 font-bold transition"
+          : "hover:text-pink-500 transition"
+      }
+    >
+      Country
+    </NavLink>
+  </li>
+  <li>
+    <NavLink
+      to="/City"
+      className={({ isActive }) =>
+        isActive 
+          ? "text-pink-500 font-bold transition"
+          : "hover:text-pink-500 transition"
+      }
+    >
+      City
+    </NavLink>
+  </li>
+  <li>
+    <NavLink
+      to="/Address"
+      className={({ isActive }) =>
+        isActive 
+          ? "text-pink-500 font-bold transition"
+          : "hover:text-pink-500 transition"
+      }
+    >
+      Address
+    </NavLink>
+  </li>
+  <li>
+    <NavLink
+      to="/Customer"
+      className={({ isActive }) =>
+        isActive 
+          ? "text-pink-500 font-bold transition"
+          : "hover:text-pink-500 transition"
+      }
+    >
+      Customer
+    </NavLink>
+  </li>
+  <li>
+    <NavLink
+      to="/Store"
+      className={({ isActive }) =>
+        isActive 
+          ? "text-pink-500 font-bold transition"
+          : "hover:text-pink-500 transition"
+      }
+    >
+      Store
+    </NavLink>
+  </li>
+</ul>
 
         {/* 콘텐츠 */}
         <div className="bg-white text-black p-6 mx-8 rounded-lg shadow-lg">
           <Routes>
+            {/* 나라 */}
             <Route path='/' element={<Home />} />
             <Route path='/Country' element={<Country />} />
             <Route path='/CountryOne/:countryId' element={<CountryOne />} />
             <Route path='/AddCountry' element={<AddCountry />} />
+            <Route path='/EditCountry/:countryId' element={<EditCountry />} />
 
+            {/* 도시 */}
             <Route path='/City' element={<City />} />
             <Route path='/CityOne/:cityId' element={<CityOne />} />
             <Route path='/AddCity' element={<AddCity />} />
+            <Route path='/EditCity/:cityId' element={<EditCity />} />
 
+            {/* 주소 */}
             <Route path='/Address' element={<Address />} />
             <Route path='/AddressOne/:addressId' element={<AddressOne />} />
             <Route path='/AddAddress' element={<AddAddress />} />
+            <Route path='/EditAddress/:addressId' element={<EditAddress />} />
 
+            {/* 고객 */}
             <Route path='/Customer' element={<Customer />} />
             <Route path='/CustomerOne/:customerId' element={<CustomerOne />} />
             <Route path='/AddCustomer' element={<AddCustomer />} />
+            <Route path='/EditCustomer/:customerId' element={<EditCustomer />} />
 
+            {/* 상점 */}
             <Route path='/Store' element={<Store />} />
           </Routes>
         </div>
